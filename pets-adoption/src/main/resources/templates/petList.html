@@ -49,6 +49,8 @@
 					<th scope="col">Race</th>
 					<th scope="col">Weight</th>
 					<th scope="col">Has Chip</th>
+					<th scope="col">Pet Foto</th>
+					<th scope="col">buttons to adopt</th>
 				</tr>
 			</thead>
 
@@ -65,6 +67,7 @@
 					<td th:text="${p.race}"></td>
 					<td th:text="${p.weight}"></td>
 					<td th:text="${p.hasChip}"></td>
+					<td><img src="{{@{${p.urlFoto}}}"></td>
 					<td>
 						<a class="btn btn-info"
 						th:href=@{/owner/addToPetList/{id}(id=${p.id})}>Adopt</a>

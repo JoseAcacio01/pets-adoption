@@ -37,7 +37,7 @@ public class DesingOwnerController {
 	public String createOwner(@ModelAttribute("owner") Owner owner) {
 		ownerRepo.save(owner);
 		System.out.print("save Owner");
-		return "redirect:/pets";
+		return "congratulations";
 	}
 	
 	@GetMapping("/addToPetList/{id}") 

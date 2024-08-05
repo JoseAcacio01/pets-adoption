@@ -8,7 +8,8 @@ create table if not exists Pet (
   birthdate timestamp not null,
   race varchar(50) not null,
   weight int not null,
-  has_chip boolean not null
+  has_chip boolean not null,
+  url_foto varchar(170) not null
 );
 
 -- Crear la tabla Owner

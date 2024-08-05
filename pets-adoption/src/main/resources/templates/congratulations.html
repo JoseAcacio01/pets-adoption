@@ -13,13 +13,14 @@
 		<div class="card-body">
 			<div class="d-grid gap-2 col-6 mx-auto" role="group"
 				aria-label="Vertical button group">
-				<label for="inputEmail4" class="tittle">WELCOME, WHERE DO WE START?</label>
+				<div class="center">
+					<label for="inputEmail4" class="tittle">CONGRATULATIONS ON
+						ADOPTING</label> <img th:src="@{/images/congratulationsPet.jpg}" />
+				</div>
 				<button type="button" class="btn btn-primary">
-					<a class="nav-link active" aria-current="page" method="GET" th:href="@{/createPet}">Add
-						Pet</a>
-				</button>
-				<button type="button" class="btn btn-primary"><a class="nav-link active" aria-current="page" th:href="@{/pets}">Adopt
-						Pet</a></button>
+						<a class="nav-link active" aria-current="page" th:href="@{/}">Adopt
+							Pet</a>
+					</button>
 			</div>
 
 

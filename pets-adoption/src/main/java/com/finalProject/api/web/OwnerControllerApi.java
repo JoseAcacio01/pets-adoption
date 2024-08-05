@@ -52,7 +52,8 @@ public class OwnerControllerApi {
 	@PostMapping()
 	@ResponseStatus(HttpStatus.OK)
 	public Owner createPet(@RequestBody Owner owner) {
-		return ownerRepo.save(owner); 
+		Owner save = ownerRepo.save(owner); 
+		return save;
 	}
 	
 	

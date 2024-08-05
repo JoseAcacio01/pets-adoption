@@ -32,4 +32,6 @@ public class Pet {
 	
 	private Boolean hasChip;
 	
+	private String urlFoto;
+	
 }
