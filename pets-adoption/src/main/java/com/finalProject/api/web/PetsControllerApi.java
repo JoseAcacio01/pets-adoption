@@ -80,6 +80,16 @@ public class PetsControllerApi {
 		return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
 	}
 	
+	@GetMapping("/searchByRace/{pet_race}")
+	public ResponseEntity<List<Pet>> searchByRace(@PathVariable String pet_race) {
+		String low_pet_race = pet_race.toUpperCase();
+		List<Pet> petbyRace = petsRepo.findByRace(low_pet_race);
+		if(petbyRace.size() != 0) {
+			return new ResponseEntity<>(petbyRace, HttpStatus.OK);
+		}
+		return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+	}
+	
 	
 	
 	

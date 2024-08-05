@@ -10,4 +10,6 @@ public interface JpaPestRepository extends JpaRepository<Pet, Long>{
 	
 	List<Pet> findByName(String name);
 	
+	List<Pet> findByRace(String race);
+	
 }
