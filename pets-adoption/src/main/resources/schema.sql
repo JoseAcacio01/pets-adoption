@@ -15,7 +15,7 @@ create table if not exists Owner (
   name varchar(50) not null,
   last_name varchar(50) not null,
   email varchar(50) not null,
-  fon_number int not null,
+  phone_number int not null,
   address varchar(50) not null
 );
 

@@ -25,16 +25,16 @@ public class Owner {
 	@NotBlank(message="Name is requered")
 	private String name;
 	
-	@NotBlank(message="lastName is requered")
+	@NotBlank(message="LastName is requered")
 	private String lastName;
 	
-	@NotBlank(message="email is requered")
+	@NotBlank(message="Email is requered")
 	private String email;
 	
-	@Digits(integer=9, fraction=0, message="invalid weight, max 9 integers")
-	private int fonNumber;
+	@Digits(integer=12, fraction=0, message="Invalid weight, max 9 integers")
+	private int phoneNumber; 
 
-	@NotBlank(message="address is requered")
+	@NotBlank(message="Address is requered")
 	private String address;
 
 	@OneToMany(targetEntity = Pet.class)

@@ -27,12 +27,13 @@ public class Pet {
 	@NotBlank(message="Name is requered")
 	private String name;
 	
+	
 	private LocalDate birthdate;
 	
-	@NotBlank(message="race is requered")
+	@NotBlank(message="Race is requered")
 	private String race;
 	
-	@Digits(integer=4, fraction=0, message="invalid weight, max 4 integers")
+	@Digits(integer=4, fraction=0, message="Invalid weight, max 4 integers")
 	private int weight;
 	
 	private Boolean hasChip;

@@ -7,7 +7,7 @@
 	rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
-<title>Pet Adoption</title>
+<title>PET ADOPTION</title>
 </head>
 <body>
 
@@ -31,33 +31,43 @@
 
 	<div class="col-md-4 container justify-content-center card">
 		<div class="card-body">
-		
+
 			<form class="row g-3" method="POST" th:action="@{/createPet}"
 				th:object="${pet}">
 
 				<div class="center">
 					<div class="col-md-12">
 						<label for="inputEmail4" class="form-label">Pet's name</label> <input
-							type="text" class="form-control" name="name" th:field="*{name}">
+							type="text" class="form-control" name="name" th:field="*{name}"><span
+							class="validationError" th:if="${#fields.hasErrors('name')}"
+							th:errors="*{name}"></span>
 					</div>
 					<div class="col-md-12">
 						<label for="inputEmail4" class="form-label">Pet's date of
 							birth</label> <input type="date" class="form-control" name="birthdate"
-							th:field="*{birthdate}">
+							th:field="*{birthdate}"> <span
+							class="validationError" th:if="${#fields.hasErrors('birthdate')}"
+							th:errors="*{birthdate}"></span>
 					</div>
 					<div class="col-md-12">
 						<label for="inputEmail4" class="form-label">Pet breed</label> <input
-							type="text" class="form-control" name="race" th:field="*{race}">
+							type="text" class="form-control" name="race" th:field="*{race}"><span
+							class="validationError" th:if="${#fields.hasErrors('race')}"
+							th:errors="*{race}"></span> 
 					</div>
 					<div class="col-md-12">
 						<label for="inputEmail4" class="form-label">Pet weight</label> <input
 							type="number" class="form-control" name="weight"
-							th:field="*{weight}">
+							th:field="*{weight}"> <span
+							class="validationError" th:if="${#fields.hasErrors('weight')}"
+							th:errors="*{weight}"></span>
 					</div>
 					<div class="col-md-12">
 						<label for="inputEmail4" class="form-label">Add a urlFoto</label>
 						<input type="text" class="form-control" name="urlFoto"
-							th:field="*{urlFoto}">
+							th:field="*{urlFoto}"> <span
+							class="validationError" th:if="${#fields.hasErrors('urlFoto')}"
+							th:errors="*{urlFoto}"></span>
 					</div>
 					<div class="col-12">
 						<div class="form-check">

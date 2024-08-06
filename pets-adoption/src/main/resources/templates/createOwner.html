@@ -7,7 +7,7 @@
 	rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
-<title>Pet Adoption</title>
+<title>PET ADOPTION</title>
 </head>
 <body>
 
@@ -39,26 +39,36 @@
 				<div class="center">
 					<div class="col-md-12">
 						<label for="inputEmail4" class="form-label">Name</label> <input
-							type="text" class="form-control" name="name" th:field="*{name}">
+							type="text" class="form-control" name="name" th:field="*{name}"><span
+							class="validationError" th:if="${#fields.hasErrors('name')}"
+							th:errors="*{name}"></span>
 					</div>
 					<div class="col-md-12">
 						<label for="inputEmail4" class="form-label">last Name</label> <input
 							type="text" class="form-control" name="lastName"
-							th:field="*{lastName}">
+							th:field="*{lastName}"> <span
+							class="validationError" th:if="${#fields.hasErrors('lastName')}"
+							th:errors="*{lastName}"></span>
 					</div>
 					<div class="col-md-12">
 						<label for="inputEmail4" class="form-label">Your email</label> <input
-							type="text" class="form-control" name="email" th:field="*{email}">
+							type="text" class="form-control" name="email" th:field="*{email}"><span
+							class="validationError" th:if="${#fields.hasErrors('email')}"
+							th:errors="*{email}"></span>
 					</div>
 					<div class="col-md-12">
 						<label for="inputEmail4" class="form-label">Your phone number</label> <input
-							type="number" class="form-control" name="phone number"
-							th:field="*{fonNumber}">
+							type="number" class="form-control" name="phoneNumber"
+							th:field="*{phoneNumber}"><span
+							class="validationError" th:if="${#fields.hasErrors('phoneNumber')}"
+							th:errors="*{phoneNumber}"></span>
 					</div>
 					<div class="col-md-12">
 						<label for="inputEmail4" class="form-label">Your address</label> <input
 							type="text" class="form-control" name="address"
-							th:field="*{address}">
+							th:field="*{address}"> <span
+							class="validationError" th:if="${#fields.hasErrors('address')}"
+							th:errors="*{address}"></span>
 					</div>
 					<div class="col-12">
 						<button type="submit" class="btn btn-primary">Sign in</button>
