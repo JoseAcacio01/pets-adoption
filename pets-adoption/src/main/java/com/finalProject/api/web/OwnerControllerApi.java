@@ -1,6 +1,6 @@
 package com.finalProject.api.web;
 
-import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,48 +18,47 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.finalProject.api.data.JpaOwnerRepository;
-import com.finalProject.api.data.JpaPestRepository;
 import com.finalProject.api.model.Owner;
-import com.finalProject.api.model.Pet;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 
 @RestController
-@RequestMapping("/api/owner")
+@RequestMapping(path="/api/owner", produces="application/json")
+@Tag(name = "owner", description = "the owner API")
 public class OwnerControllerApi {
 	
 	@Autowired
 	private JpaOwnerRepository ownerRepo;
 	
-	@GetMapping("/lists")
+	@GetMapping()
 	public Iterable<Owner> allPets() {
 		return ownerRepo.findAll();
 		
 	}
 	
 	@GetMapping("/pages/{num_paged}")
-	public Iterable<Owner> allPets(@PathVariable int num_paged) {
+	public Iterable<Owner> allOwner(@PathVariable int num_paged) {
 		PageRequest pageRequest = PageRequest.of(num_paged, 5);
 		return ownerRepo.findAll(pageRequest);
 		
 	}
 	
 	@GetMapping("/youngerPets")
-	public Iterable<Owner> youngerPets() {
+	public Iterable<Owner> youngerOwner() {
 		PageRequest pageRequest = PageRequest.of(0, 20, Sort.by("birthdate").descending());
 		return ownerRepo.findAll(pageRequest); 
 	}
 	
-	@PostMapping()
+	@PostMapping(consumes="application/json")
 	@ResponseStatus(HttpStatus.OK)
-	public Owner createPet(@RequestBody Owner owner) {
-		Owner save = ownerRepo.save(owner); 
-		return save;
+	public Owner createOwner(@RequestBody Owner owner) { 
+		return ownerRepo.save(owner);
 	}
 	
 	
 	@DeleteMapping("/{delete_id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void deletePet(@PathVariable Long delete_id) {
+	public void deleteOwner(@PathVariable Long delete_id) {
 		ownerRepo.deleteById(delete_id);	
 	}
 	

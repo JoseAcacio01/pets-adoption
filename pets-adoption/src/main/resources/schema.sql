@@ -1,6 +1,3 @@
--- Eliminar la tabla Owner_Pets si existe
-drop table if exists Owner_Pets;
-
 -- Crear la tabla Pet
 create table if not exists Pet (
   id identity,

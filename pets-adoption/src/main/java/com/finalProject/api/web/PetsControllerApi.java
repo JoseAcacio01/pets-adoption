@@ -17,18 +17,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.finalProject.api.data.JpaPestRepository;
+import com.finalProject.api.data.JpaPetRepository;
 import com.finalProject.api.model.Pet;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping(path="/api/pets")
+@Tag(name = "pet", description = "the pet API")
 public class PetsControllerApi {
 	
 	
 	@Autowired
-	private JpaPestRepository petsRepo;
+	private JpaPetRepository petsRepo;
 	
-	@GetMapping("/lists")
+	@GetMapping()
 	public Iterable<Pet> allPets() {
 		return petsRepo.findAll();
 		
@@ -47,7 +50,7 @@ public class PetsControllerApi {
 		return petsRepo.findAll(pageRequest); 
 	}
 	
-	@PostMapping()
+	@PostMapping(consumes="application/json")
 	@ResponseStatus(HttpStatus.OK)
 	public Pet createPet(@RequestBody Pet pet) {
 		return petsRepo.save(pet); 

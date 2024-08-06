@@ -31,6 +31,7 @@
 
 	<div class="col-md-4 container justify-content-center card">
 		<div class="card-body">
+		
 			<form class="row g-3" method="POST" th:action="@{/createPet}"
 				th:object="${pet}">
 
@@ -40,8 +41,8 @@
 							type="text" class="form-control" name="name" th:field="*{name}">
 					</div>
 					<div class="col-md-12">
-						<label for="inputEmail4" class="form-label">Pet's date of birth</label> <input
-							type="date" class="form-control" name="birthdate"
+						<label for="inputEmail4" class="form-label">Pet's date of
+							birth</label> <input type="date" class="form-control" name="birthdate"
 							th:field="*{birthdate}">
 					</div>
 					<div class="col-md-12">
@@ -54,8 +55,9 @@
 							th:field="*{weight}">
 					</div>
 					<div class="col-md-12">
-						<label for="inputEmail4" class="form-label">Add a urlFoto</label> <input
-							type="text" class="form-control" name="urlFoto" th:field="*{urlFoto}">
+						<label for="inputEmail4" class="form-label">Add a urlFoto</label>
+						<input type="text" class="form-control" name="urlFoto"
+							th:field="*{urlFoto}">
 					</div>
 					<div class="col-12">
 						<div class="form-check">

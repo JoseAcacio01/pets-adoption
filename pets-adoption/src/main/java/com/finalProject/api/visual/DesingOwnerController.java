@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,10 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.finalProject.api.data.JpaOwnerRepository;
-import com.finalProject.api.data.JpaPestRepository;
+import com.finalProject.api.data.JpaPetRepository;
 import com.finalProject.api.model.Owner;
 import com.finalProject.api.model.Pet;
 
+
+import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 @RequestMapping("/owner")
 @SessionAttributes("owner")
@@ -26,7 +32,7 @@ public class DesingOwnerController {
 	private JpaOwnerRepository ownerRepo;
 	
 	@Autowired
-	private JpaPestRepository petRepo;
+	private JpaPetRepository petRepo;
 	
 	@GetMapping("/create")
 	public String viewCreateOwner() {
@@ -34,7 +40,12 @@ public class DesingOwnerController {
 	}
 	
 	@PostMapping
-	public String createOwner(@ModelAttribute("owner") Owner owner) {
+	public String createOwner(@Valid @ModelAttribute("owner") Owner owner, Errors error) {
+		if (error.hasErrors()) {
+			log.info("hubo un error, intentelo de nuevo");
+			return "createOwner";
+		}
+		
 		ownerRepo.save(owner);
 		System.out.print("save Owner");
 		return "congratulations";
